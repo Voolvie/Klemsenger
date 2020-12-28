@@ -28,7 +28,7 @@ io.on('connection', (socket) => {
         socket.join(user.room)
 
         socket.emit('message', generateMessage('Admin','Welcome!'))
-        socket.broadcast.to(user.room).emit('message', generateMessage('Admin',`${user.username} has joined!`))
+        socket.broadcast.to(user.room).emit('message', generateMessage('Admin',`${user.username} dołączył/a!`))
         io.to(user.room).emit('roomData', {
             room: user.room,
             users: getUserInRoom(user.room)
@@ -42,7 +42,7 @@ io.on('connection', (socket) => {
 
 
         if (filter.isProfane(message)) {
-            return callback('Profanity is not allowed!')
+            return callback('Nie przeklinaj!')
         }
 
         io.to(user.room).emit('message', generateMessage(user.username, message))
@@ -60,7 +60,7 @@ io.on('connection', (socket) => {
         const user = removeUser(socket.id)
 
         if (user) {
-            io.to(user.room).emit('message', generateMessage('Admin',`${user.username} has left!`))
+            io.to(user.room).emit('message', generateMessage('Admin',`${user.username} opuścił czat!`))
             io.to(user.room).emit('roomData', {
                 room: user.room,
                 users: getUserInRoom(user.room)
@@ -68,6 +68,7 @@ io.on('connection', (socket) => {
         }    
     })
 })
+
 
 server.listen(port, () => {
     console.log(`Server is up on port ${port}!`)
