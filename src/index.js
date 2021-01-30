@@ -10,6 +10,7 @@ const app = express()
 const server = http.createServer(app)
 const io = socketio(server)
 
+
 const port = process.env.PORT || 3000
 const publicDirectoryPath = path.join(__dirname, '../public')
 
@@ -37,9 +38,9 @@ io.on('connection', (socket) => {
     })
 
     socket.on('sendMessage', (message, callback) => {
-        const filter = new Filter()
         const user = getUser(socket.id)
-
+        const filter = new Filter()
+        filter.addWords('Kokos')
 
         if (filter.isProfane(message)) {
             return callback('Nie przeklinaj!')
