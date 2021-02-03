@@ -310,7 +310,7 @@ document = window.document || {};
                 },
 
                 animals_nature: {
-                    icon: "Zwierzęta i Natura",
+                    icon: "Zwierzęta i natura",
                     emoji: "dog cat mouse hamster rabbit fox bear panda_face koala tiger lion_face cow pig pig_nose frog monkey_face see_no_evil " +
                     "hear_no_evil speak_no_evil monkey chicken penguin bird baby_chick hatching_chick hatched_chick duck eagle owl bat wolf boar " +
                     "horse unicorn bee bug butterfly snail shell beetle ant spider spider_web turtle snake lizard scorpion crab squid octopus shrimp " +
