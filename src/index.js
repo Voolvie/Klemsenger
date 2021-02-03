@@ -59,7 +59,6 @@ io.on('connection', (socket) => {
 
     socket.on('disconnect', () => {
         const user = removeUser(socket.id)
-
         if (user) {
             io.to(user.room).emit('message', generateMessage('Czat-Bot',`${user.username} opuścił czat!`))
             io.to(user.room).emit('roomData', {
