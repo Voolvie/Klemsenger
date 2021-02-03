@@ -2,8 +2,11 @@
 <html>
     <head>
         <title>Klemsenger</title>
-        <link rel="icon" href="/img/favicon.png">
-        <link rel="stylesheet" href="/css/styles.min.css">
+        <link rel="icon" href="/img/favicon.ico">
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/css/emojionearea.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script src="/js/emojionearea.js"></script>
     </head>
 
     <body>
@@ -13,10 +16,14 @@
             </div>
             <div class="chat__main">
                 <div id="messages" class="chat__messages"></div>
-                
                 <div class="compose">
                 <form id="message-form">
-                 <input name="message" placeholder="Message" required autocomplete="off">
+                 <input  id="messageEmoji" name="message" placeholder="Wiadomość" required autocomplete="off">
+                 <script>
+                    $(document).ready(function(){
+                        $("#messageEmoji").emojioneArea();
+                    })
+                </script>
                  <button >Wyślij</button>
                 </form>
                 <button id="send-location">Wyślij lokalizacje</button>
@@ -45,7 +52,7 @@
 
         <script id="sidebar-template" type="text/html">
                 <h2 class="room-title">Kanał - {{room}}</h2>
-                <h3 class="list-title">Użytkownicy</h2>
+                <h4 class="list-title">Użytkownicy</h4>
                 <ul class='users'>
                     {{#users}}
                     <li>{{username}}</li>

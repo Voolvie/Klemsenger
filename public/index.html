@@ -2,8 +2,8 @@
 <html>
     <head>
         <title>Klemsenger</title>
-        <link rel="icon" href="/img/favicon.png">
-        <link rel="stylesheet" href="/css/styles.min.css">
+        <link rel="icon" href="/img/favicon.ico">
+        <link rel="stylesheet" href="/css/styles.css">
     </head>
 
     <body>
@@ -13,10 +13,11 @@
                 <h1>Dołącz</h1>
                 <form action="/chat.html">
                     <label>Nazwa użytkownika</label>
-                    <input type="text" name="username" placeholder="Nazwa użytkownika" required>
+                    <input type="text" name="username" placeholder="Nazwa użytkownika" required maxlength="10" required autocomplete="off">
                     <label>Kanał</label>
-                    <input type="text" name="room" placeholder="Kanał" required>
+                    <input type="text" name="room" placeholder="Kanał" required maxlength="10" required autocomplete="off">
                     <button>Dołącz</button>
+                    
                 </form>
             </div>
         </div>
