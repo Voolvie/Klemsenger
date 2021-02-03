@@ -44,6 +44,17 @@ button {
     font-size: 16px;
     transition: background .3s ease;
 }
+.button2 {
+    border-radius: 70px;
+    cursor: pointer;
+    padding: 12px;
+    background:#000000;
+    border: none;
+    color: rgb(255, 0, 0);
+    font-size: 16px;
+    transition: background .3s ease;
+    border: solid white;
+}
 
 button:hover {
     background:#0b6e29;
@@ -84,6 +95,7 @@ button:disabled {
 .chat {
     display: flex;
 }
+
 
 .chat__sidebar {
     height: 100vh;
@@ -183,3 +195,9 @@ button:disabled {
     font-weight: 300;
     padding: 12px 24px 0 24px;
 }
+
+input[type=submit] {
+    width: 25%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+  }

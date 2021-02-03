@@ -67,6 +67,7 @@ $messageForm.addEventListener('submit', (e) => {
     socket.emit('sendMessage', message, (error) => {
         $messageFormButton.removeAttribute('disabled')
         $(".emojionearea-editor").html("")
+        $messageFormInput.value = ''
         $messageFormInput.focus()
 
         if (error) {
