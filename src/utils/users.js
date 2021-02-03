@@ -2,12 +2,12 @@ const users = []
 
 const addUser = ({id, username, room}) => {
     //Clean the data
-    username = username.trim().toLowerCase()
-    room = room.trim().toLowerCase()
+    username = username.trim()
+    room = room.trim()
     //Validate the data
     if(!username || !room) {
         return {
-            error: 'Username and room are required!'
+            error: 'Należy podać nazwę użytkownika oraz kanał!'
         }
     }
     //Check for existing user
@@ -17,7 +17,7 @@ const addUser = ({id, username, room}) => {
     //Validate username
     if(existingUser) {
         return {
-            error: 'Username is in use'
+            error: 'Nazwa jest już zajęta!'
         }
     }
 
@@ -26,6 +26,7 @@ const addUser = ({id, username, room}) => {
     users.push(user)
     return {user}
 }
+
 
 const removeUser = (id) => {
     const index = users.findIndex((user) => user.id === id)
@@ -37,15 +38,21 @@ const removeUser = (id) => {
 const getUser = (id) => {
     return users.find((user) => user.id === id)
 }
+
 const getUserInRoom = (room) => {
-    room = room.trim().toLowerCase()
+    room = room.trim()
     return users.filter((user) => user.room === room)
 }
+
+
+
+
 
 module.exports = {
     addUser,
     removeUser,
     getUser,
     getUserInRoom
+
 }
 

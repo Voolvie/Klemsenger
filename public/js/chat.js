@@ -2,7 +2,7 @@ const socket = io()
 
 //Elements
 const $messageForm = document.querySelector('#message-form')
-const $messageFormInput = $messageForm.querySelector('input')
+const $messageFormInput = $messageForm.querySelector('#messageEmoji')
 const $messageFormButton = $messageForm.querySelector('button')
 const $sendLocationButton = document.querySelector('#send-location')
 const $messages = document.querySelector('#messages')
@@ -75,15 +75,15 @@ $messageForm.addEventListener('submit', (e) => {
         $messageFormInput.focus()
 
         if (error) {
-            return console.log(error)
+            return alert(error)
         }
-        console.log('Message delivered!')
+        console.log('Wiadomość dostarczona!')
     })
 })
 
 $sendLocationButton.addEventListener('click', () => {
     if (!navigator.geolocation) {
-        return alert('Geolocation is not support by your browser.')
+        return alert('Geolokalizacja nie jest obsługiwana przez twoją przeglądarkę')
     }
     
     $sendLocationButton.setAttribute('disabled', 'disabled')
@@ -94,7 +94,7 @@ $sendLocationButton.addEventListener('click', () => {
             longitude: position.coords.longitude
         }, () => {
             $sendLocationButton.removeAttribute('disabled')
-            console.log('Location shared!')
+            console.log('Lokalizacja udostępniona!')
         })
     })
 })

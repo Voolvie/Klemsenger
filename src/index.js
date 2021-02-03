@@ -4,7 +4,7 @@ const express = require('express')
 const socketio = require('socket.io')
 const Filter = require('bad-words')
 const { generateMessage, generateLocationMessage } = require('./utils/messages')
-const { addUser, removeUser, getUser, getUserInRoom } = require('./utils/users')
+const { addUser, removeUser, getUser, getUserInRoom} = require('./utils/users')
 
 const app = express()
 const server = http.createServer(app)
@@ -20,16 +20,16 @@ io.on('connection', (socket) => {
     console.log('New WebSocket connection')
 
     socket.on('join', (options, callback) => {
+        
         const { error, user } = addUser({ id: socket.id, ...options })
-
         if (error) {
             return callback(error)
         }
 
         socket.join(user.room)
 
-        socket.emit('message', generateMessage('Admin','Witaj!'))
-        socket.broadcast.to(user.room).emit('message', generateMessage('Admin',`${user.username} dołączył/a!`))
+        socket.emit('message', generateMessage('Czat-Bot','Witaj!'))
+        socket.broadcast.to(user.room).emit('message', generateMessage('Czat-Bot',`${user.username} dołączył/a!`))
         io.to(user.room).emit('roomData', {
             room: user.room,
             users: getUserInRoom(user.room)
@@ -59,9 +59,10 @@ io.on('connection', (socket) => {
 
     socket.on('disconnect', () => {
         const user = removeUser(socket.id)
+        // const room = removeRoom(socket.id)
 
         if (user) {
-            io.to(user.room).emit('message', generateMessage('Admin',`${user.username} opuścił czat!`))
+            io.to(user.room).emit('message', generateMessage('Czat-Bot',`${user.username} opuścił czat!`))
             io.to(user.room).emit('roomData', {
                 room: user.room,
                 users: getUserInRoom(user.room)

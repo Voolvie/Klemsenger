@@ -40,7 +40,7 @@ input {
 button {
     cursor: pointer;
     padding: 12px;
-    background: #7C5CBF;
+    background:#2a84ce;
     border: none;
     color: white;
     font-size: 16px;
@@ -48,7 +48,7 @@ button {
 }
 
 button:hover {
-    background: #6b47b8;
+    background:#0b6e29;
 }
 
 button:disabled {
@@ -93,7 +93,7 @@ button:disabled {
     height: 100vh;
     color: white;
     background: #333744;
-    width: 225px;
+    width: 300px;
     overflow-y: scroll
 }
 
@@ -168,6 +168,12 @@ button:disabled {
     background: #2c2f3a;
     padding: 24px;   
 }
+.room-list {
+    font-weight: 500;
+    font-size: 22px;
+    background: #2c2f3a;
+    padding: 12px 24px 0 24px;  
+}
 
 .list-title {
     font-weight: 500;
@@ -175,7 +181,11 @@ button:disabled {
     margin-bottom: 4px;
     padding: 12px 24px 0 24px;
 }
-
+.rooms {
+    font-weight: 300;
+    background: #2c2f3a;
+    padding: 24px;  
+}
 .users {
     list-style-type: none;
     font-weight: 300;
